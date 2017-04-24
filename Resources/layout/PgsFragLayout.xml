@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:fillViewport="true">
+  <LinearLayout
+     android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <OxyPlot.Xamarin.Android.PlotView
+        android:id="@+id/plot_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dip"  />
+
+    <LinearLayout
+       android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:weightSum="2">
+      <Button
+        android:id="@+id/PgsFragTodayBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Today"/>
+      
+      <Button
+        android:id="@+id/PgsFragYesterdayBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Yesterday"/>
+    </LinearLayout>
+
+    <LinearLayout
+       android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:weightSum="2">
+      <Button
+        android:id="@+id/PgsFragThisWeekBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="This Week"/>
+
+      <Button
+        android:id="@+id/PgsFragLastWeekBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Last Week"/>
+    </LinearLayout>
+
+    <Button
+      android:id="@+id/PgsFragFilterBtn"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Filter"/>
+  </LinearLayout>
+</ScrollView>
