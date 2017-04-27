@@ -31,7 +31,7 @@ namespace TDNoPV
             string[] tab = { "bieganie", "programowanie", "sprzątanie", "oglądanie seriali", "nauka języków obcych", "granie w gry", "czytanie książek", "siłownia", "nauka gotowania", "pranie/prasowanie", "spacerowanie", "karmienie kaczek" };
 
             for (int i = 0; i < tab.Length; i++)
-                StaticData.StockList.Add(new TaskTD(tab[i], rd.Next(0, 11), 0));
+                StaticData.StockList.Add(new TaskTD(tab[i], rd.Next(-5, 6), 0));
             DataStorage.SaveStockList(StaticData.StockList);
 
             DateTime Date = DateTime.Now;
