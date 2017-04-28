@@ -2190,6 +2190,9 @@ namespace TDNoPV
 			// aapt resource value: 0x7f060099
 			public const int PgsFragFilterBtn = 2131099801;
 			
+			// aapt resource value: 0x7f06009a
+			public const int PgsFragLV = 2131099802;
+			
 			// aapt resource value: 0x7f060098
 			public const int PgsFragLastWeekBtn = 2131099800;
 			
@@ -2202,29 +2205,29 @@ namespace TDNoPV
 			// aapt resource value: 0x7f060096
 			public const int PgsFragYesterdayBtn = 2131099798;
 			
-			// aapt resource value: 0x7f06009b
-			public const int StkFragFab = 2131099803;
-			
-			// aapt resource value: 0x7f06009a
-			public const int StkFragLV = 2131099802;
-			
 			// aapt resource value: 0x7f06009c
-			public const int StkRowAddBtn = 2131099804;
+			public const int StkFragFab = 2131099804;
 			
-			// aapt resource value: 0x7f0600a1
-			public const int StkRowDeleteBtn = 2131099809;
-			
-			// aapt resource value: 0x7f0600a0
-			public const int StkRowEditBtn = 2131099808;
+			// aapt resource value: 0x7f06009b
+			public const int StkFragLV = 2131099803;
 			
 			// aapt resource value: 0x7f06009d
-			public const int StkRowNameTV = 2131099805;
+			public const int StkRowAddBtn = 2131099805;
 			
-			// aapt resource value: 0x7f06009f
-			public const int StkRowTimeTV = 2131099807;
+			// aapt resource value: 0x7f0600a2
+			public const int StkRowDeleteBtn = 2131099810;
+			
+			// aapt resource value: 0x7f0600a1
+			public const int StkRowEditBtn = 2131099809;
 			
 			// aapt resource value: 0x7f06009e
-			public const int StkRowValueTV = 2131099806;
+			public const int StkRowNameTV = 2131099806;
+			
+			// aapt resource value: 0x7f0600a0
+			public const int StkRowTimeTV = 2131099808;
+			
+			// aapt resource value: 0x7f06009f
+			public const int StkRowValueTV = 2131099807;
 			
 			// aapt resource value: 0x7f060080
 			public const int action0 = 2131099776;
