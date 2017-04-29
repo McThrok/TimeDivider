@@ -121,6 +121,7 @@
     <Compile Include="EditTaskActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="OptionsFragment.cs" />
+    <Compile Include="ProgressAdapter.cs" />
     <Compile Include="ProgressFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

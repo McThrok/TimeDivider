@@ -2205,29 +2205,41 @@ namespace TDNoPV
 			// aapt resource value: 0x7f060096
 			public const int PgsFragYesterdayBtn = 2131099798;
 			
-			// aapt resource value: 0x7f06009c
-			public const int StkFragFab = 2131099804;
-			
 			// aapt resource value: 0x7f06009b
-			public const int StkFragLV = 2131099803;
+			public const int PgsRowIndexTV = 2131099803;
 			
-			// aapt resource value: 0x7f06009d
-			public const int StkRowAddBtn = 2131099805;
-			
-			// aapt resource value: 0x7f0600a2
-			public const int StkRowDeleteBtn = 2131099810;
-			
-			// aapt resource value: 0x7f0600a1
-			public const int StkRowEditBtn = 2131099809;
+			// aapt resource value: 0x7f06009c
+			public const int PgsRowNameTV = 2131099804;
 			
 			// aapt resource value: 0x7f06009e
-			public const int StkRowNameTV = 2131099806;
+			public const int PgsRowPercentageTV = 2131099806;
+			
+			// aapt resource value: 0x7f06009d
+			public const int PgsRowTimeTV = 2131099805;
 			
 			// aapt resource value: 0x7f0600a0
-			public const int StkRowTimeTV = 2131099808;
+			public const int StkFragFab = 2131099808;
 			
 			// aapt resource value: 0x7f06009f
-			public const int StkRowValueTV = 2131099807;
+			public const int StkFragLV = 2131099807;
+			
+			// aapt resource value: 0x7f0600a1
+			public const int StkRowAddBtn = 2131099809;
+			
+			// aapt resource value: 0x7f0600a6
+			public const int StkRowDeleteBtn = 2131099814;
+			
+			// aapt resource value: 0x7f0600a5
+			public const int StkRowEditBtn = 2131099813;
+			
+			// aapt resource value: 0x7f0600a2
+			public const int StkRowNameTV = 2131099810;
+			
+			// aapt resource value: 0x7f0600a4
+			public const int StkRowTimeTV = 2131099812;
+			
+			// aapt resource value: 0x7f0600a3
+			public const int StkRowValueTV = 2131099811;
 			
 			// aapt resource value: 0x7f060080
 			public const int action0 = 2131099776;
@@ -2838,22 +2850,25 @@ namespace TDNoPV
 			public const int PgsFragLayout = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int select_dialog_item_material = 2130903094;
+			public const int PgsRowLayout = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int select_dialog_multichoice_material = 2130903095;
+			public const int select_dialog_item_material = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int select_dialog_singlechoice_material = 2130903096;
+			public const int select_dialog_multichoice_material = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int StkFragLayout = 2130903097;
+			public const int select_dialog_singlechoice_material = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int StkRowLayout = 2130903098;
+			public const int StkFragLayout = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int support_simple_spinner_dropdown_item = 2130903099;
+			public const int StkRowLayout = 2130903099;
+			
+			// aapt resource value: 0x7f03003c
+			public const int support_simple_spinner_dropdown_item = 2130903100;
 			
 			static Layout()
 			{
