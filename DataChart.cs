@@ -20,7 +20,7 @@ namespace TDNoPV
     {
         //static OxyColor[] colors = { OxyColors.Aqua, OxyColors.BlueViolet, OxyColors.Crimson, OxyColors.Violet, OxyColors.LawnGreen, OxyColors.LightSeaGreen, OxyColors.MediumSeaGreen, OxyColors.Orange, OxyColors.Peru, OxyColors.YellowGreen, OxyColors.SkyBlue };
 
-        public static PlotModel CreatePlotModel(DateTime start, DateTime end)
+        public static PlotModel CreatePlotModel(List<DataStorage.DataCell> cells)
         {
             PlotModel modelP1 = new PlotModel { Title = "" };
 
@@ -29,8 +29,6 @@ namespace TDNoPV
             PieSeries seriesP1 = new PieSeries { StrokeThickness = 1.5, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
 
 
-            DataStorage.DataCommand dc = new DataStorage.DataCommand();
-            List<DataStorage.DataCell> cells = DataStorage.GetProgress(dc.FilterByDate(start, end).Build());
             cells = cells.OrderByDescending(cell => cell.Time).ToList();
 
             char index = 'A';

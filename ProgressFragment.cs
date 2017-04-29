@@ -22,6 +22,8 @@ namespace TDNoPV
         PlotView ProgressChart;
         public DateTime FilteredStart;
         DateTime FilteredEnd;
+        ProgressAdapter progressAdapter;
+        List<DataStorage.DataCell> cells;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -30,6 +32,9 @@ namespace TDNoPV
             FilteredStart = DateTime.Now;
             FilteredEnd = DateTime.Now;
             ProgressChart = root.FindViewById<PlotView>(Resource.Id.plot_view);
+            cells = new List<DataStorage.DataCell>();
+            progressAdapter = new ProgressAdapter(Activity, cells);
+            root.FindViewById<ListView>(Resource.Id.PgsFragLV).Adapter = progressAdapter;
 
             PrintChart(DateTime.Now, DateTime.Now);
 
@@ -43,7 +48,15 @@ namespace TDNoPV
         }
         async private Task PrintChart(DateTime start, DateTime end)
         {
-           await Task.Run(()=>  ProgressChart.Model = DataChart.CreatePlotModel(start, end));
+
+            DataStorage.DataCommand dc = new DataStorage.DataCommand();
+            List<DataStorage.DataCell> tmp = DataStorage.GetProgress(dc.FilterByDate(start, end).Build());
+            cells.Clear();
+            foreach (var item in tmp)
+                cells.Add(item);
+            ProgressChart.Model = DataChart.CreatePlotModel(cells);
+            progressAdapter.NotifyDataSetChanged();
+            //await Task.Run(()=>  );
         }
         private void TodayPgs(object sender, EventArgs args)
         {
@@ -76,7 +89,8 @@ namespace TDNoPV
         private void PrintFilteredChart(object sender, DataFilterDialogEventArgs data)
         {
             if (data.FilterByDate)
-                ProgressChart.Model = DataChart.CreatePlotModel(data.StartDate, data.EndDate);
+                //ProgressChart.Model = DataChart.CreatePlotModel(data.StartDate, data.EndDate);
+                PrintChart(data.StartDate, data.EndDate);
             else
                 PrintChart(DateTime.MinValue, DateTime.Now);//total
 
