@@ -22,7 +22,7 @@ namespace TDNoPV
         PlotView ProgressChart;
         public DateTime FilteredStart;
         DateTime FilteredEnd;
-        ProgressAdapter progressAdapter;
+        ListView ProgressListView;
         List<DataStorage.DataCell> cells;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -33,16 +33,18 @@ namespace TDNoPV
             FilteredEnd = DateTime.Now;
             ProgressChart = root.FindViewById<PlotView>(Resource.Id.plot_view);
             cells = new List<DataStorage.DataCell>();
-            progressAdapter = new ProgressAdapter(Activity, cells);
-            root.FindViewById<ListView>(Resource.Id.PgsFragLV).Adapter = progressAdapter;
+            ProgressListView = root.FindViewById<ListView>(Resource.Id.PgsFragLV);
 
-            PrintChart(DateTime.Now, DateTime.Now);
+            ProgressListView.Adapter = new ProgressAdapter(Activity, cells);
+
 
             root.FindViewById<Button>(Resource.Id.PgsFragTodayBtn).Click += TodayPgs;
             root.FindViewById<Button>(Resource.Id.PgsFragYesterdayBtn).Click += YesterdayPgs;
             root.FindViewById<Button>(Resource.Id.PgsFragThisWeekBtn).Click += ThisWeekPgs;
             root.FindViewById<Button>(Resource.Id.PgsFragLastWeekBtn).Click += LastWeekPgs;
             root.FindViewById<Button>(Resource.Id.PgsFragFilterBtn).Click += ShowFilterDataDialog;
+
+            PrintChart(DateTime.Now, DateTime.Now);
 
             return root;
         }
@@ -55,7 +57,7 @@ namespace TDNoPV
             foreach (var item in tmp)
                 cells.Add(item);
             ProgressChart.Model = DataChart.CreatePlotModel(cells);
-            progressAdapter.NotifyDataSetChanged();
+            ((BaseAdapter)ProgressListView.Adapter).NotifyDataSetChanged();
             //await Task.Run(()=>  );
         }
         private void TodayPgs(object sender, EventArgs args)

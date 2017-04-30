@@ -21,7 +21,7 @@ namespace TDNoPV
     public class MainActivity : ActionBarActivity, ActionBar.ITabListener
     {
         private int _tabCount = 4;
-        private string[] _tabNames = { "Action", "Stock", "Progress", "Options" };//Act Stk Pro Opt
+        private string[] _tabNames = { "Action", "Stock", "Progress", "Options" };//Act Stk Pgs Opt
         private ActionFragment _tab1Fragment = null;
         private StockFragment _tab2Fragment = null;
         private ProgressFragment _tab3Fragment = null;

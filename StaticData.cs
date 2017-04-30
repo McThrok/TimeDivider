@@ -17,6 +17,7 @@ namespace TDNoPV
         public static Activity Context;
         public static List<TaskTD> StockList;
         public static List<TaskTD> ActionList;
+        public static List<DataStorage.DataCell> ProgressCells;//!!
         public static string DataFile = "Tasks.xml";
 
         public static void InitStaticData(Activity context)
@@ -24,6 +25,8 @@ namespace TDNoPV
             Context = context;
             ActionList = new List<TaskTD>();
             StockList = new List<TaskTD>();
+
+            ProgressCells = new List<DataStorage.DataCell>();//!!
 
             DataStorage.DataStorageOnAppStart();
             StockList = DataStorage.GetStockList();
