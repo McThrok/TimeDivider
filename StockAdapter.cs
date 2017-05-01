@@ -41,7 +41,6 @@ namespace TDNoPV
         {
             return position;
         }
-
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             TaskTD task = _tasks[position];

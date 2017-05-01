@@ -27,6 +27,7 @@ namespace TDNoPV
             var adapter = new StockAdapter(Activity, StaticData.StockList);
             list.Adapter = adapter;
 
+
             var fab = root.FindViewById<FloatingActionButton>(Resource.Id.StkFragFab);
             fab.AttachToListView(list, this, this);
             fab.Click += (s, e) => { StartActivity(new Intent(Activity, typeof(AddTaskActivity))); };

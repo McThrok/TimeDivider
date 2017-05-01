@@ -2187,23 +2187,23 @@ namespace TDNoPV
 			// aapt resource value: 0x7f06008d
 			public const int OptFragGenerateDataBtn = 2131099789;
 			
-			// aapt resource value: 0x7f060099
-			public const int PgsFragFilterBtn = 2131099801;
-			
 			// aapt resource value: 0x7f06009a
-			public const int PgsFragLV = 2131099802;
-			
-			// aapt resource value: 0x7f060098
-			public const int PgsFragLastWeekBtn = 2131099800;
-			
-			// aapt resource value: 0x7f060097
-			public const int PgsFragThisWeekBtn = 2131099799;
+			public const int PgsFragFilterBtn = 2131099802;
 			
 			// aapt resource value: 0x7f060095
-			public const int PgsFragTodayBtn = 2131099797;
+			public const int PgsFragLV = 2131099797;
+			
+			// aapt resource value: 0x7f060099
+			public const int PgsFragLastWeekBtn = 2131099801;
+			
+			// aapt resource value: 0x7f060098
+			public const int PgsFragThisWeekBtn = 2131099800;
 			
 			// aapt resource value: 0x7f060096
-			public const int PgsFragYesterdayBtn = 2131099798;
+			public const int PgsFragTodayBtn = 2131099798;
+			
+			// aapt resource value: 0x7f060097
+			public const int PgsFragYesterdayBtn = 2131099799;
 			
 			// aapt resource value: 0x7f06009b
 			public const int PgsRowIndexTV = 2131099803;

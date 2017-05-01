@@ -35,6 +35,7 @@ namespace TDNoPV
             cells = new List<DataStorage.DataCell>();
             ProgressListView = root.FindViewById<ListView>(Resource.Id.PgsFragLV);
 
+
             ProgressListView.Adapter = new ProgressAdapter(Activity, cells);
 
 
