@@ -18,7 +18,6 @@ namespace TDNoPV
 {
     public class ProgressFragment : Fragment
     {
-        //View _root;
         PlotView ProgressChart;
         public DateTime FilteredStart;
         DateTime FilteredEnd;
@@ -34,10 +33,7 @@ namespace TDNoPV
             ProgressChart = root.FindViewById<PlotView>(Resource.Id.plot_view);
             cells = new List<DataStorage.DataCell>();
             ProgressListView = root.FindViewById<ListView>(Resource.Id.PgsFragLV);
-
-
             ProgressListView.Adapter = new ProgressAdapter(Activity, cells);
-
 
             root.FindViewById<Button>(Resource.Id.PgsFragTodayBtn).Click += TodayPgs;
             root.FindViewById<Button>(Resource.Id.PgsFragYesterdayBtn).Click += YesterdayPgs;
@@ -49,17 +45,17 @@ namespace TDNoPV
 
             return root;
         }
-        async private Task PrintChart(DateTime start, DateTime end)
+        private void PrintChart(DateTime start, DateTime end)
         {
 
             DataStorage.DataCommand dc = new DataStorage.DataCommand();
             List<DataStorage.DataCell> tmp = DataStorage.GetProgress(dc.FilterByDate(start, end).Build());
+            tmp = tmp.OrderByDescending(cell => cell.Time).ToList();
             cells.Clear();
             foreach (var item in tmp)
                 cells.Add(item);
             ProgressChart.Model = DataChart.CreatePlotModel(cells);
             ((BaseAdapter)ProgressListView.Adapter).NotifyDataSetChanged();
-            //await Task.Run(()=>  );
         }
         private void TodayPgs(object sender, EventArgs args)
         {

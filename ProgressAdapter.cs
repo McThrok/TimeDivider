@@ -15,6 +15,7 @@ using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
@@ -26,8 +27,10 @@ using Fragment = Android.Support.V4.App.Fragment;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Linq;
 
 using System.Collections.Generic;
+using Android.Graphics;
 
 namespace TDNoPV
 {
@@ -62,43 +65,29 @@ namespace TDNoPV
             var view = convertView;
             ProgressAdapterViewHolder holder = null;
 
-            //if (view != null)
-            //    holder = view.Tag as ProgressAdapterViewHolder;
+            if (holder == null)
+            {
+                holder = new ProgressAdapterViewHolder();
+                //replace with your item and your holder items
+                //comment back in
+                view = LayoutInflater.From(_context).Inflate(Resource.Layout.PgsRowLayout, parent, false);
+                holder.Index = view.FindViewById<TextView>(Resource.Id.PgsRowIndexTV);
+                holder.Value = view.FindViewById<View>(Resource.Id.PgsRowValueV);
+                holder.Name = view.FindViewById<TextView>(Resource.Id.PgsRowNameTV);
+                holder.Time = view.FindViewById<TextView>(Resource.Id.PgsRowTimeTV);
+                holder.Percentage = view.FindViewById<TextView>(Resource.Id.PgsRowPercentageTV);
+                
+                view.Tag = holder;
+            }
 
-            //if (holder == null)
-            //{
-            //    holder = new ProgressAdapterViewHolder();
-            //    var inflater = _context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
-            //    //replace with your item and your holder items
-            //    //comment back in
-            //    view = inflater.Inflate(Resource.Layout.PgsRowLayout, parent, false);
-            //   // view = LayoutInflater.From(_context).Inflate(Resource.Layout.PgsRowLayout, parent, false);
-            //    holder.Index = view.FindViewById<TextView>(Resource.Id.PgsRowIndexTV);
-            //    holder.Name = view.FindViewById<TextView>(Resource.Id.PgsRowNameTV);
-            //    holder.Time = view.FindViewById<TextView>(Resource.Id.PgsRowTimeTV);
-            //    holder.Percentage = view.FindViewById<TextView>(Resource.Id.PgsRowPercentageTV);
-            //    view.Tag = holder;
-            //}
+            //fill in your items
+            holder.Index.Text = Convert.ToChar('A' + position).ToString();
+            //holder.Value.SetBackgroundColor(Color.Rgb(100, 100, 100));
+            holder.Value.SetBackgroundColor(Color.Rgb(Convert.ToByte(Math.Min(5 - _cells[position].Value, 5) * 50), Convert.ToByte(Math.Min(_cells[position].Value + 5, 5) * 50), 0));
+            holder.Name.Text = _cells[position].Name;
+            holder.Time.Text = _cells[position].Time.ToString();
+            holder.Percentage.Text = Math.Round((100.0 * _cells[position].Time / _cells.Sum(c => c.Time)), 2).ToString() + "%";
 
-
-            ////fill in your items
-            //holder.Index.Text = Convert.ToChar('A' + position).ToString();
-            //holder.Name.Text = _cells[position].Name;
-            //holder.Time.Text = _cells[position].Time.ToString();
-            //holder.Percentage.Text = "0";
-            ////holder.Title.Text = "new text here";
-
-            view = LayoutInflater.From(_context).Inflate(Resource.Layout.PgsRowLayout, parent, false);
-
-            view.FindViewById<TextView>(Resource.Id.PgsRowIndexTV).Text = Convert.ToChar('A' + position).ToString();
-            view.FindViewById<TextView>(Resource.Id.PgsRowNameTV).Text = _cells[position].Name;
-            view.FindViewById<TextView>(Resource.Id.PgsRowTimeTV).Text = _cells[position].Time.ToString();
-            view.FindViewById<TextView>(Resource.Id.PgsRowPercentageTV).Text = "0";
-
-            //holder.Index.Text = Convert.ToChar('A' + position).ToString();
-            //holder.Name.Text = _cells[position].Name;
-            //holder.Time.Text = _cells[position].Time.ToString();
-            //holder.Percentage.Text = "0";
             return view;
         }
 
@@ -107,6 +96,7 @@ namespace TDNoPV
     class ProgressAdapterViewHolder : Java.Lang.Object
     {
         public TextView Index { get; set; }
+        public View Value { get; set; }
         public TextView Name { get; set; }
         public TextView Time { get; set; }
         public TextView Percentage { get; set; }

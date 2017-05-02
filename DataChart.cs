@@ -27,16 +27,14 @@ namespace TDNoPV
             modelP1.PlotMargins = new OxyThickness(30, 10, 30, 10);
 
             PieSeries seriesP1 = new PieSeries { StrokeThickness = 1.5, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
-
-
-            cells = cells.OrderByDescending(cell => cell.Time).ToList();
+            
 
             char index = 'A';
             for (int i = 0; i < cells.Count; i++)
                 seriesP1.Slices.Add(new PieSlice(index++.ToString(), Convert.ToDouble(cells[i].Time))
                 {
                     IsExploded = false,
-                    Fill = OxyColor.FromRgb(Convert.ToByte((cells[i].Value + 5) * 25), Convert.ToByte((5 - cells[i].Value) * 25), 0)
+                    Fill = OxyColor.FromRgb(Convert.ToByte(Math.Min(5-cells[i].Value,5) * 50), Convert.ToByte(Math.Min(cells[i].Value+5,5) * 50), 0)
                 });
 
             seriesP1.Stroke = OxyColors.DarkGray;
