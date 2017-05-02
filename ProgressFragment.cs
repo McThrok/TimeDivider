@@ -35,21 +35,21 @@ namespace TDNoPV
             ProgressListView = root.FindViewById<ListView>(Resource.Id.PgsFragLV);
             ProgressListView.Adapter = new ProgressAdapter(Activity, cells);
 
+
             root.FindViewById<Button>(Resource.Id.PgsFragTodayBtn).Click += TodayPgs;
             root.FindViewById<Button>(Resource.Id.PgsFragYesterdayBtn).Click += YesterdayPgs;
             root.FindViewById<Button>(Resource.Id.PgsFragThisWeekBtn).Click += ThisWeekPgs;
             root.FindViewById<Button>(Resource.Id.PgsFragLastWeekBtn).Click += LastWeekPgs;
             root.FindViewById<Button>(Resource.Id.PgsFragFilterBtn).Click += ShowFilterDataDialog;
 
-            PrintChart(DateTime.Now, DateTime.Now);
+            PrintChart(new DataStorage.DataCommand().FilterByDate(DateTime.Now, DateTime.Now));
 
             return root;
         }
-        private void PrintChart(DateTime start, DateTime end)
+        private void PrintChart(DataStorage.DataCommand dc)
         {
 
-            DataStorage.DataCommand dc = new DataStorage.DataCommand();
-            List<DataStorage.DataCell> tmp = DataStorage.GetProgress(dc.FilterByDate(start, end).Build());
+            List<DataStorage.DataCell> tmp = DataStorage.GetProgress(dc.Build());
             tmp = tmp.OrderByDescending(cell => cell.Time).ToList();
             cells.Clear();
             foreach (var item in tmp)
@@ -59,23 +59,27 @@ namespace TDNoPV
         }
         private void TodayPgs(object sender, EventArgs args)
         {
-            PrintChart(DateTime.Now, DateTime.Now);
+            PrintChart(new DataStorage.DataCommand().FilterByDate(DateTime.Now, DateTime.Now));
         }
         private void YesterdayPgs(object sender, EventArgs args)
         {
             DateTime dt = DateTime.Now.AddDays(-1);
-            PrintChart(dt, dt);
+            PrintChart(new DataStorage.DataCommand().FilterByDate(dt, dt));
         }
         private void ThisWeekPgs(object sender, EventArgs args)
         {
             DateTime dt = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek + 1);
-            PrintChart(dt, DateTime.Now);
+            PrintChart(new DataStorage.DataCommand().FilterByDate(dt, DateTime.Now));
         }
         private void LastWeekPgs(object sender, EventArgs args)
         {
             DateTime start = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek - 7 + 1);
             DateTime end = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek);
-            PrintChart(start, end);
+            PrintChart(new DataStorage.DataCommand().FilterByDate(start, end));
+        }
+        private void AllPgs(object sender, EventArgs args)
+        {
+            PrintChart(new DataStorage.DataCommand().FilterByDate(DateTime.MinValue, DateTime.Now));
         }
         private void ShowFilterDataDialog(object sender, EventArgs args)
         {
@@ -87,11 +91,7 @@ namespace TDNoPV
         }
         private void PrintFilteredChart(object sender, DataFilterDialogEventArgs data)
         {
-            if (data.FilterByDate)
-                //ProgressChart.Model = DataChart.CreatePlotModel(data.StartDate, data.EndDate);
-                PrintChart(data.StartDate, data.EndDate);
-            else
-                PrintChart(DateTime.MinValue, DateTime.Now);//total
+            PrintChart(data.Command); //total
 
         }
     }

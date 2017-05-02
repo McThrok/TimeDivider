@@ -238,6 +238,7 @@ namespace TDNoPV
             private bool _byDate;
             private DateTime _startDate;
             private DateTime _endDate;
+
             private bool _byValue;
             private int _minValue;
             private int _maxValue;

@@ -17,9 +17,11 @@ namespace TDNoPV
 {
     public class DataFilterDialogEventArgs : EventArgs
     {
-        public bool FilterByDate { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DataStorage.DataCommand Command { get; set; }
+        public DataFilterDialogEventArgs()
+        {
+            Command = new DataStorage.DataCommand();
+        }
     }
     public class DataFilterDialog : Android.Support.V4.App.DialogFragment
     {
@@ -45,8 +47,8 @@ namespace TDNoPV
             filterByDateCB = dialogView.FindViewById<CheckBox>(Resource.Id.DialSBDateCB);
             dateStartBtn = dialogView.FindViewById<Button>(Resource.Id.DialStartDateBtn);
             dateEndBtn = dialogView.FindViewById<Button>(Resource.Id.DialEndDateBtn);
-            dateEndTV = dialogView.FindViewById<TextView>(Resource.Id.DialEndDateTV);
             dateStartTV = dialogView.FindViewById<TextView>(Resource.Id.DialStartDateTV);
+            dateEndTV = dialogView.FindViewById<TextView>(Resource.Id.DialEndDateTV);
             doneBtn = dialogView.FindViewById<Button>(Resource.Id.DialDoneButton);
 
             this.Dialog.Window.SetLayout(3000, 3000);
@@ -55,6 +57,7 @@ namespace TDNoPV
             endDate = DateTime.Now;
 
             doneBtn.Click += FinishFiltering;
+
             dateStartBtn.Click += ChooseStartDate;
             dateEndBtn.Click += ChooseEndDate;
 
@@ -91,7 +94,10 @@ namespace TDNoPV
         }
         private void FinishFiltering(object sender, EventArgs e)
         {
-            OnFiliteringComplete.Invoke(this, new DataFilterDialogEventArgs() { StartDate = startDate, EndDate = endDate,FilterByDate=filterByDateCB.Checked });
+            DataFilterDialogEventArgs dfdea = new DataFilterDialogEventArgs();
+            if (filterByDateCB.Checked)
+                dfdea.Command.FilterByDate(startDate, endDate);
+            OnFiliteringComplete.Invoke(this, dfdea);
             this.Dismiss();
         }
         public override void OnActivityCreated(Bundle savedInstanceState)
