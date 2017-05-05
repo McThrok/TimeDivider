@@ -18,6 +18,9 @@ namespace TDNoPV
         public static List<TaskTD> StockList;
         public static List<TaskTD> ActionList;
         public static string DataFile = "Tasks.xml";
+        public static int ValueRange { get; } = 11;
+        public static int ValueDiff
+        { get { return ValueRange / 2 ; } }
 
         public static void InitStaticData(Activity context)
         {

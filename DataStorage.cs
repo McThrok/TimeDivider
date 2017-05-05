@@ -80,7 +80,7 @@ namespace TDNoPV
         public static void InsertOrReplaceIntoAction(TaskTD task)
         {
             string sql = string.Format("INSERT OR REPLACE INTO {0} (Id,Time) VALUES ({1},{2}) ", ActionTable, task.Id, task.TimeOnStopwatch);
-           Execute(sql);
+            Execute(sql);
         }
         public static void DeleteFromAction(TaskTD task)
         {
@@ -147,7 +147,7 @@ namespace TDNoPV
             {
                 Con.Open();
                 command.CommandText = string.Format(
-                    @"SELECT st.*, progress.TaskTime FROM {0} st join (SELECT pt.Task_id, SUM(Time) as TaskTime FROM {1} pt GROUP BY pt.Task_id) progress on st.Id = progress.Task_id"
+                    @"SELECT st.*, progress.TaskTime FROM {0} st left join (SELECT pt.Task_id, SUM(Time) as TaskTime FROM {1} pt GROUP BY pt.Task_id) progress on st.Id = progress.Task_id"
                     , StockTable, ProgressTable);
 
                 SqliteDataReader reader = command.ExecuteReader();
@@ -155,14 +155,20 @@ namespace TDNoPV
                 {
                     //NOTE: use convert on object instead of (int)
                     if ((int)reader["Deleted"] == 0)
-                        list.Add(new TaskTD((string)reader["Name"], (int)reader["Value"], Convert.ToInt32(reader["TaskTime"]), (long)reader["Id"]));
+                    {
+                        object timeObject = reader["TaskTime"];
+                        int time = 0;
+                        if (!(timeObject is DBNull))
+                            time = Convert.ToInt32(timeObject);
+
+                        list.Add(new TaskTD((string)reader["Name"], (int)reader["Value"], time, (long)reader["Id"]));
+                    }
                 }
 
                 Con.Close();
             }
             return list;
         }
-
 
         public static void SaveProgress(TaskTD task)
         {
@@ -277,7 +283,7 @@ namespace TDNoPV
                          , ProgressTable, _startDate.Day, _startDate.Month, _startDate.Year, _endDate.Day, _endDate.Month, _endDate.Year);
 
                 _command.Append("GROUP BY pt.Task_id) progress on progress.Task_id=stock.Id");
-                
+
                 return _command.ToString();
 
 

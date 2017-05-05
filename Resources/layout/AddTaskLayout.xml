@@ -9,12 +9,17 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:hint="Name"/>
-  
-  <EditText
-    android:id="@+id/AddTaskValueText"
+
+  <SeekBar
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:hint="Value"/>
+    android:max="10"
+    android:id="@+id/AddTaskValueSB" />
+  
+  <TextView
+    android:id="@+id/AddTaskValueTV"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"/>
 
   <Button
     android:id="@+id/AddTaskDoneButton"
