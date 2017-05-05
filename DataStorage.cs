@@ -80,7 +80,7 @@ namespace TDNoPV
         public static void InsertOrReplaceIntoAction(TaskTD task)
         {
             string sql = string.Format("INSERT OR REPLACE INTO {0} (Id,Time) VALUES ({1},{2}) ", ActionTable, task.Id, task.TimeOnStopwatch);
-            Console.Write(Execute(sql));
+           Execute(sql);
         }
         public static void DeleteFromAction(TaskTD task)
         {
@@ -122,7 +122,7 @@ namespace TDNoPV
         public static void InsertOrReplaceIntoStock(TaskTD task)
         {
             string sql = string.Format("INSERT OR REPLACE INTO {0} (Id,Name,Value,Deleted) VALUES ({1},'{2}',{3},0) ", StockTable, task.Id, task.Name, task.Value);
-            Console.WriteLine(Execute(sql));//DEBUG
+            Execute(sql);
         }
         public static void DeleteFromStock(TaskTD task)
         {
@@ -168,7 +168,7 @@ namespace TDNoPV
         {
             DateTime DT = DateTime.Now;
             string sql = string.Format("INSERT OR REPLACE INTO {0} (Task_id,Time,Day,Month,Year) VALUES ({1},{2},{3},{4},{5}) ", ProgressTable, task.Id, task.TimeThisDay, DT.Day, DT.Month, DT.Year);
-            Console.WriteLine(Execute(sql));//DEBUG
+            Execute(sql);
         }
 
         //generate data
@@ -277,8 +277,7 @@ namespace TDNoPV
                          , ProgressTable, _startDate.Day, _startDate.Month, _startDate.Year, _endDate.Day, _endDate.Month, _endDate.Year);
 
                 _command.Append("GROUP BY pt.Task_id) progress on progress.Task_id=stock.Id");
-
-                Console.Write("qwe  " + _command.ToString());//DEBUG
+                
                 return _command.ToString();
 
 

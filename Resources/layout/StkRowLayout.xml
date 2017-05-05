@@ -6,8 +6,8 @@
      android:weightSum="11">
 
   <Button
-      android:layout_width="40dip"
-      android:layout_height="40dip"
+      android:layout_width="32dip"
+      android:layout_height="32dip"
       android:layout_gravity="center"
       android:id="@+id/StkRowAddBtn"
       android:layout_weight="1" />
