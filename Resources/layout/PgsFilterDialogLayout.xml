@@ -7,16 +7,6 @@
     android:layout_height="match_parent"
   >
 
-  <ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:fillViewport="true">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
       <CheckBox android:id="@+id/DialSBDateCB"
                 android:text="filter by date"
               android:layout_width="wrap_content"
@@ -66,9 +56,40 @@
             android:id="@+id/DialEndDateTV"
             android:layout_weight="1" />
       </LinearLayout>
-    </LinearLayout>
-  </ScrollView>
 
+
+  <CheckBox android:id="@+id/DialSBValueCB"
+            android:text="filter by date"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+
+  <SeekBar
+        android:text="start date"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:id="@+id/DialMinValueSB"/>
+
+  <TextView
+    android:text="start date"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/DialMinValueTV" />
+
+  <SeekBar
+        android:text="end date"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:id="@+id/DialMaxValueSB" />
+
+  <TextView
+    android:text="end date"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:id="@+id/DialMaxValueTV" />
+  
+  
   <Button
     android:text="done"
       android:layout_width="match_parent"
