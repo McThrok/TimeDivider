@@ -2326,17 +2326,17 @@ namespace TDNoPV
 			// aapt resource value: 0x7f0700a5
 			public const int DialEndDateTV = 2131165349;
 			
-			// aapt resource value: 0x7f0700a9
-			public const int DialMaxValueSB = 2131165353;
-			
 			// aapt resource value: 0x7f0700aa
-			public const int DialMaxValueTV = 2131165354;
+			public const int DialMaxValueSB = 2131165354;
 			
-			// aapt resource value: 0x7f0700a7
-			public const int DialMinValueSB = 2131165351;
+			// aapt resource value: 0x7f0700a9
+			public const int DialMaxValueTV = 2131165353;
 			
 			// aapt resource value: 0x7f0700a8
-			public const int DialMinValueTV = 2131165352;
+			public const int DialMinValueSB = 2131165352;
+			
+			// aapt resource value: 0x7f0700a7
+			public const int DialMinValueTV = 2131165351;
 			
 			// aapt resource value: 0x7f0700a1
 			public const int DialSBDateCB = 2131165345;

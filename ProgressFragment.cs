@@ -92,7 +92,6 @@ namespace TDNoPV
         private void PrintFilteredChart(object sender, DataFilterDialogEventArgs data)
         {
             PrintChart(data.Command); //total
-
         }
     }
 }

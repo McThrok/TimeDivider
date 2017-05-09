@@ -1,101 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-              android:padding="20dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-  >
+  android:orientation="vertical"
+  android:padding="20dp"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
 
-      <CheckBox android:id="@+id/DialSBDateCB"
-                android:text="filter by date"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"/>
+  <CheckBox android:id="@+id/DialSBDateCB"
+    android:text="filter by date"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
 
-      <LinearLayout
-          android:orientation="horizontal"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:weightSum="2">
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:weightSum="2">
 
-        <Button
-          android:text="start date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/DialStartDateBtn"
-            android:layout_weight="1" />
+    <Button
+      android:text="start date"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:id="@+id/DialStartDateBtn"
+      android:layout_weight="1" />
 
-        <TextView
-          android:text="start date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/DialStartDateTV"
-            android:layout_weight="1" />
-      </LinearLayout>
+    <TextView
+      android:text="start date"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/DialStartDateTV"
+      android:layout_weight="1" />
+  </LinearLayout>
 
 
-      <LinearLayout
-          android:orientation="horizontal"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:weightSum="2">
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:weightSum="2">
 
-        <Button
-          android:text="end date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/DialEndDateBtn"
-            android:layout_weight="1" />
+    <Button
+      android:text="end date"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:id="@+id/DialEndDateBtn"
+      android:layout_weight="1" />
 
-        <TextView
-          android:text="end date"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/DialEndDateTV"
-            android:layout_weight="1" />
-      </LinearLayout>
+    <TextView
+      android:text="end date"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:id="@+id/DialEndDateTV"
+      android:layout_weight="1" />
+  </LinearLayout>
 
 
   <CheckBox android:id="@+id/DialSBValueCB"
-            android:text="filter by date"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"/>
+    android:text="filter by date"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
 
-  <SeekBar
-        android:text="start date"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:id="@+id/DialMinValueSB"/>
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1">
 
-  <TextView
-    android:text="start date"
+    <TextView
+      android:text="minimum value"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"/>
+    
+    <TextView
+      android:text="0"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:id="@+id/DialMinValueTV" />
+  </LinearLayout>
 
-  <SeekBar
-        android:text="end date"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:id="@+id/DialMaxValueSB" />
-
-  <TextView
-    android:text="end date"
+    <SeekBar
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="wrap_content"
+      android:max="10"
+      android:id="@+id/DialMinValueSB"/>
+
+   
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1">
+    
+    <TextView
+      android:text="maximum value"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"/>
+    
+    <TextView
+      android:text="0"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       android:id="@+id/DialMaxValueTV" />
-  
-  
-  <Button
-    android:text="done"
+  </LinearLayout>
+
+    <SeekBar
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:max="10"
+      android:id="@+id/DialMaxValueSB" />
+
+    <Button
+      android:text="done"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:id="@+id/DialDoneButton"/>
 
-</LinearLayout>
+  </LinearLayout>
 

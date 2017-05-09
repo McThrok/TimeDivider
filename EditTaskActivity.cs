@@ -32,10 +32,11 @@ namespace TDNoPV
             _nameEditText = FindViewById<EditText>(Resource.Id.AddTaskNameText);
             _valueSeekBar = FindViewById<SeekBar>(Resource.Id.AddTaskValueSB);
             _valueTextView = FindViewById<TextView>(Resource.Id.AddTaskValueTV);
+
             _valueSeekBar.ProgressChanged += _valueSeekBar_ProgressChanged;
+            _valueSeekBar.Progress = task.Value + StaticData.ValueDiff;
 
             _nameEditText.Text = task.Name;
-            _valueSeekBar.Progress = task.Value + StaticData.ValueDiff;
 
             Button DoneButton = FindViewById<Button>(Resource.Id.AddTaskDoneButton);
             DoneButton.Click += DoneAction;

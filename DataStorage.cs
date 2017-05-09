@@ -215,10 +215,12 @@ namespace TDNoPV
                 SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    DataCell cell = new DataCell((long)reader["Id"]);
-                    cell.Name = (string)reader["Name"];
-                    cell.Value = (int)reader["Value"];
-                    cell.Time = Convert.ToInt32(reader["Time"]);
+                    DataCell cell = new DataCell((long)reader["Id"])
+                    {
+                        Name = (string)reader["Name"],
+                        Value = (int)reader["Value"],
+                        Time = Convert.ToInt32(reader["Time"])
+                    };
                     list.Add(cell);
                 }
                 Con.Close();

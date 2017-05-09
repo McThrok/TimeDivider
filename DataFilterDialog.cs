@@ -28,14 +28,23 @@ namespace TDNoPV
         private CheckBox filterByDateCB;
         private Button dateStartBtn;
         private Button dateEndBtn;
-        private Button doneBtn;
         private TextView dateStartTV;
         private TextView dateEndTV;
+
+        private CheckBox filterByValueCB;
+        private SeekBar minValueSB;
+        private SeekBar maxValueSB;
+        private TextView minValueTV;
+        private TextView maxValueTV;
+
+        private Button doneBtn;
 
         public event EventHandler<DataFilterDialogEventArgs> OnFiliteringComplete;
 
         private DateTime startDate;
         private DateTime endDate;
+        private int minValue;
+        private int maxValue;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -49,23 +58,64 @@ namespace TDNoPV
             dateEndBtn = dialogView.FindViewById<Button>(Resource.Id.DialEndDateBtn);
             dateStartTV = dialogView.FindViewById<TextView>(Resource.Id.DialStartDateTV);
             dateEndTV = dialogView.FindViewById<TextView>(Resource.Id.DialEndDateTV);
+
+            filterByValueCB = dialogView.FindViewById<CheckBox>(Resource.Id.DialSBValueCB);
+            minValueSB = dialogView.FindViewById<SeekBar>(Resource.Id.DialMinValueSB);
+            maxValueSB = dialogView.FindViewById<SeekBar>(Resource.Id.DialMaxValueSB);
+            minValueTV = dialogView.FindViewById<TextView>(Resource.Id.DialMinValueTV);
+            maxValueTV = dialogView.FindViewById<TextView>(Resource.Id.DialMaxValueTV);
+
             doneBtn = dialogView.FindViewById<Button>(Resource.Id.DialDoneButton);
 
-            this.Dialog.Window.SetLayout(3000, 3000);
+
+            this.Dialog.Window.SetLayout(3000, 3000);//qwe
 
             startDate = DateTime.Now;
             endDate = DateTime.Now;
 
-            doneBtn.Click += FinishFiltering;
-
             dateStartBtn.Click += ChooseStartDate;
             dateEndBtn.Click += ChooseEndDate;
-
             dateStartTV.Text = startDate.ToShortDateString();
             dateEndTV.Text = endDate.ToShortDateString();
 
+            minValueSB.ProgressChanged += MinValueSB_ProgressChanged;
+            maxValueSB.ProgressChanged += MaxValueSB_ProgressChanged;
+
+            minValue = 0;
+            maxValue = 0;
+            
+            minValueSB.Progress = minValue + StaticData.ValueDiff;
+            maxValueSB.Progress = maxValue + StaticData.ValueDiff;
+
+
+            doneBtn.Click += FinishFiltering;
+
             return dialogView;
         }
+
+        private void MinValueSB_ProgressChanged(object sender, SeekBar.ProgressChangedEventArgs e)
+        {
+            minValue = e.Progress - StaticData.ValueDiff;
+            minValueTV.Text = minValue.ToString();
+            if (minValue > maxValue)
+            {
+                maxValue = minValue;
+                maxValueSB.Progress = e.Progress;
+            }
+        }
+
+        private void MaxValueSB_ProgressChanged(object sender, SeekBar.ProgressChangedEventArgs e)
+        {
+            maxValue = e.Progress - StaticData.ValueDiff;
+            maxValueTV.Text = maxValue.ToString();
+            if (minValue > maxValue)
+            {
+                minValue = maxValue;
+                minValueSB.Progress = e.Progress;
+            }
+        }
+
+
         private void ChooseStartDate(object sender, EventArgs e)
         {
             DatePickerFragment frag = new DatePickerFragment(GetPickedStartTime, startDate, "start");
@@ -97,6 +147,8 @@ namespace TDNoPV
             DataFilterDialogEventArgs dfdea = new DataFilterDialogEventArgs();
             if (filterByDateCB.Checked)
                 dfdea.Command.FilterByDate(startDate, endDate);
+            if (filterByValueCB.Checked)
+                dfdea.Command.FilterByValue(minValue, maxValue);
             OnFiliteringComplete.Invoke(this, dfdea);
             this.Dismiss();
         }
