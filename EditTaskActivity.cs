@@ -47,7 +47,6 @@ namespace TDNoPV
         }
         void DoneAction(object sender, EventArgs args)
         {
-
             task.Name = _nameEditText.Text;
             task.Value = _valueSeekBar.Progress - StaticData.ValueDiff;
 

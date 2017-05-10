@@ -195,6 +195,15 @@ namespace TDNoPV
                 Con.Close();
             }
         }
+        public static void ClearTable()
+        {
+            string sql = string.Format(@"DELETE FROM {0}", ActionTable);
+            Execute(sql);
+             sql = string.Format(@"DELETE FROM {0}", StockTable);
+            Execute(sql);
+             sql = string.Format(@"DELETE FROM {0}", ProgressTable);
+            Execute(sql);
+        }
         public static void InsertIntoProgress(long taskId, int time, int day, int month, int year)
         {
             string sql = string.Format("INSERT OR REPLACE INTO {0} (Task_id,Time,Day,Month,Year) VALUES ({1},{2},{3},{4},{5}) ", ProgressTable, taskId, time, day, month, year);
