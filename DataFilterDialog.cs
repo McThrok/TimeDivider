@@ -83,7 +83,7 @@ namespace TDNoPV
 
             minValue = 0;
             maxValue = 0;
-            
+
             minValueSB.Progress = minValue + StaticData.ValueDiff;
             maxValueSB.Progress = maxValue + StaticData.ValueDiff;
 
@@ -95,6 +95,8 @@ namespace TDNoPV
 
         private void MinValueSB_ProgressChanged(object sender, SeekBar.ProgressChangedEventArgs e)
         {
+            if (e.FromUser)
+                filterByValueCB.Checked = true;
             minValue = e.Progress - StaticData.ValueDiff;
             minValueTV.Text = minValue.ToString();
             if (minValue > maxValue)
@@ -106,6 +108,8 @@ namespace TDNoPV
 
         private void MaxValueSB_ProgressChanged(object sender, SeekBar.ProgressChangedEventArgs e)
         {
+            if (e.FromUser)
+                filterByValueCB.Checked = true;
             maxValue = e.Progress - StaticData.ValueDiff;
             maxValueTV.Text = maxValue.ToString();
             if (minValue > maxValue)
@@ -128,6 +132,7 @@ namespace TDNoPV
         }
         private void GetPickedStartTime(DateTime time)
         {
+            filterByDateCB.Checked = true;
             startDate = time;
             if (startDate > endDate)
                 endDate = startDate;
@@ -136,6 +141,7 @@ namespace TDNoPV
         }
         private void GetPickedEndTime(DateTime time)
         {
+            filterByDateCB.Checked = true;
             endDate = time;
             if (startDate > endDate)
                 startDate = endDate;

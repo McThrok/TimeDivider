@@ -49,7 +49,7 @@ namespace TDNoPV
         private void PrintChart(DataStorage.DataCommand dc)
         {
 
-            List<DataStorage.DataCell> tmp = DataStorage.GetProgress(dc.Build());
+            List<DataStorage.DataCell> tmp = DataStorage.GetProgress(dc);
             tmp = tmp.OrderByDescending(cell => cell.Time).ToList();
             cells.Clear();
             foreach (var item in tmp)

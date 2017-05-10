@@ -203,7 +203,7 @@ namespace TDNoPV
         //generate data
 
         //TODO: make its own connections and datachart async
-        public static List<DataCell> GetProgress(string sql)
+        public static List<DataCell> GetProgress(DataCommand dc)
         {
             List<DataCell> list = new List<DataCell>();
 
@@ -211,18 +211,28 @@ namespace TDNoPV
             using (SqliteCommand command = Con.CreateCommand())
             {
                 Con.Open();
-                command.CommandText = sql;
+                command.CommandText = dc.Build();
                 SqliteDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    DataCell cell = new DataCell((long)reader["Id"])
+
+                //TODO: remove this separation
+                if (dc.ByValue)
+                    while (reader.Read())
                     {
-                        Name = (string)reader["Name"],
-                        Value = (int)reader["Value"],
-                        Time = Convert.ToInt32(reader["Time"])
-                    };
-                    list.Add(cell);
-                }
+                        DataCell cell = new DataCell((long)reader["stock.Id"]);
+                        cell.Name = (string)reader["stock.Name"];
+                        cell.Value = (int)reader["stock.Value"];
+                        cell.Time = Convert.ToInt32(reader["progress.Time"]);
+                        list.Add(cell);
+                    }
+                else
+                    while (reader.Read())
+                    {
+                        DataCell cell = new DataCell((long)reader["Id"]);
+                        cell.Name = (string)reader["Name"];
+                        cell.Value = (int)reader["Value"];
+                        cell.Time = Convert.ToInt32(reader["Time"]);
+                        list.Add(cell);
+                    }
                 Con.Close();
             }
             return list;
@@ -244,10 +254,12 @@ namespace TDNoPV
             private StringBuilder _command;
 
             private bool _byDate;
+            public bool ByDate { get { return _byDate; } }
             private DateTime _startDate;
             private DateTime _endDate;
 
             private bool _byValue;
+            public bool ByValue { get { return _byValue; } }
             private int _minValue;
             private int _maxValue;
 
@@ -275,7 +287,7 @@ namespace TDNoPV
                     _command.AppendFormat("{0} stock ", StockTable);
                 else
                     _command.AppendFormat(
-                        @"(SELECT st.Id, st.Name, st.Value FROM  {0} st where st.Value>={1} and st.Value<={2}) "
+                        @"(SELECT st.Id, st.Name, st.Value FROM  {0} st where st.Value>={1} and st.Value<={2}) stock "
                         , StockTable, _minValue, _maxValue);
 
                 _command.AppendFormat(@"join (SELECT Task_id, SUM(Time) as Time FROM {0} pt ", ProgressTable);
