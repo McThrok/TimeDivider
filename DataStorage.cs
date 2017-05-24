@@ -195,7 +195,7 @@ namespace TDNoPV
                 Con.Close();
             }
         }
-        public static void ClearTable()
+        public static void ClearTables()
         {
             string sql = string.Format(@"DELETE FROM {0}", ActionTable);
             Execute(sql);

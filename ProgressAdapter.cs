@@ -79,10 +79,8 @@ namespace TDNoPV
                 
                 view.Tag = holder;
             }
-
-            //fill in your items
+            
             holder.Index.Text = Convert.ToChar('A' + position).ToString();
-            //holder.Value.SetBackgroundColor(Color.Rgb(100, 100, 100));
             holder.Value.SetBackgroundColor(Color.Rgb(Convert.ToByte(Math.Min(5 - _cells[position].Value, 5) * 50), Convert.ToByte(Math.Min(_cells[position].Value + 5, 5) * 50), 0));
             holder.Name.Text = _cells[position].Name;
             holder.Time.Text = _cells[position].Time.ToString();

@@ -26,7 +26,7 @@ namespace TDNoPV
 
         private void GenerateData(object sender, EventArgs e)
         {
-            DataStorage.ClearTable();
+            DataStorage.ClearTables();
             Random rd = new Random();
             StaticData.StockList = new List<TaskTD>();
             string[] tab = { "bieganie", "programowanie", "sprzątanie", "oglądanie seriali", "nauka języków obcych", "granie w gry", "czytanie książek", "siłownia", "nauka gotowania", "pranie/prasowanie", "spacerowanie", "karmienie kaczek" };
@@ -43,7 +43,6 @@ namespace TDNoPV
                 DataStorage.InsertIntoProgress(taskId, time, Date.Day, Date.Month, Date.Year);
 
                 Date = Date.AddDays(-1);
-                Console.WriteLine(i);
             }
             DataStorage.FillStock(StaticData.StockList);
         }

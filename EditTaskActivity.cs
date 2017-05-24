@@ -23,7 +23,7 @@ namespace TDNoPV
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.AddTaskLayout);//
+            SetContentView(Resource.Layout.AddTaskLayout);
 
             int position = Intent.GetIntExtra("position", -1);
             if (position == -1) throw new InvalidOperationException("position not found");
