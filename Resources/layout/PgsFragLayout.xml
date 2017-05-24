@@ -5,10 +5,12 @@
    android:orientation="vertical"
    android:layout_width="match_parent"
    android:layout_height="match_parent"
+   android:background="@color/mainBackground"
    android:weightSum="12">
 
   <OxyPlot.Xamarin.Android.PlotView
     android:id="@+id/plot_view"
+    android:background="@android:color/transparent"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="6"  />
@@ -20,11 +22,12 @@
     android:layout_weight="4"/>
 
   <LinearLayout
-     android:orientation="horizontal"
+    android:orientation="horizontal"
+    android:background="@android:color/transparent"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"
-     android:weightSum="4">
+    android:weightSum="4">
 
     <Button
       android:id="@+id/PgsFragTodayBtn"

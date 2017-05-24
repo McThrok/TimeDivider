@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#3498DB</color>
-    <color name="primary_pressed">#2C3E50</color>
-    <color name="ripple">#ff80ab</color>
-    <color name="accent">#E64A19</color>
-    <color name="accent_pressed">#BF360C</color>
+  <color name="primary">#3498DB</color>
+  <color name="primary_pressed">#2C3E50</color>
+  <color name="ripple">#5CB3F5</color>
+  <color name="accent">#2782C7</color>
+  <color name="accent_pressed">#2273B2</color>
+
+  <color name="yellow1">#2273B2</color>
+  <color name="yellow2">#2273B2</color>
+  <color name="grey05" >#2273B2</color>
+  <color name="orange4">#2273B2</color>
+  <color name="orange5">#2273B2</color>
+  <color name="grey05" >#2273B2</color>
+  <color name="blue2">#2273B2</color>
+  <color name="blue25">#2273B2</color>
+  <color name="grey05">#2C3E50</color>
+  
+  <color name="mainBackground">#BFE4FF</color>
 </resources>
