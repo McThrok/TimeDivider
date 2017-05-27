@@ -1333,8 +1333,8 @@ namespace TDNoPV
 			// aapt resource value: 0x7f0b0018
 			public const int foreground_material_light = 2131427352;
 			
-			// aapt resource value: 0x7f0b004e
-			public const int grey05 = 2131427406;
+			// aapt resource value: 0x7f0b0050
+			public const int grey05 = 2131427408;
 			
 			// aapt resource value: 0x7f0b0019
 			public const int highlighted_text_material_dark = 2131427353;
@@ -1390,11 +1390,11 @@ namespace TDNoPV
 			// aapt resource value: 0x7f0b0028
 			public const int notification_material_background_media_default_color = 2131427368;
 			
-			// aapt resource value: 0x7f0b004f
-			public const int orange4 = 2131427407;
+			// aapt resource value: 0x7f0b004e
+			public const int orange4 = 2131427406;
 			
-			// aapt resource value: 0x7f0b0050
-			public const int orange5 = 2131427408;
+			// aapt resource value: 0x7f0b004f
+			public const int orange5 = 2131427407;
 			
 			// aapt resource value: 0x7f0b0047
 			public const int primary = 2131427399;

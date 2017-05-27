@@ -8,7 +8,6 @@
 
   <color name="yellow1">#2273B2</color>
   <color name="yellow2">#2273B2</color>
-  <color name="grey05" >#2273B2</color>
   <color name="orange4">#2273B2</color>
   <color name="orange5">#2273B2</color>
   <color name="grey05" >#2273B2</color>
@@ -16,5 +15,5 @@
   <color name="blue25">#2273B2</color>
   <color name="grey05">#2C3E50</color>
   
-  <color name="mainBackground">#BFE4FF</color>
+  <color name="mainBackground">#E4F4FF</color>
 </resources>
