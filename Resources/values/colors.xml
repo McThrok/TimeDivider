@@ -6,14 +6,11 @@
   <color name="accent">#2782C7</color>
   <color name="accent_pressed">#2273B2</color>
 
-  <color name="yellow1">#2273B2</color>
-  <color name="yellow2">#2273B2</color>
-  <color name="orange4">#2273B2</color>
-  <color name="orange5">#2273B2</color>
-  <color name="grey05" >#2273B2</color>
-  <color name="blue2">#2273B2</color>
-  <color name="blue25">#2273B2</color>
-  <color name="grey05">#2C3E50</color>
-  
-  <color name="mainBackground">#E4F4FF</color>
+
+  <color name="mainBackground">#ffffff</color>
+  <color name="mainBlueGrayLight">#465879</color>
+  <color name="mainBlueGrayDark">#3F4F6D</color>
+  <color name="mainTealLight">#00DAD6</color>
+  <color name="mainTealDark">#009599</color>
+  <color name="mainGray">#C2C2C2</color>
 </resources>
