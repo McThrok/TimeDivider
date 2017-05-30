@@ -77,7 +77,7 @@ namespace TDNoPV
                 FinishBtn.Click += FinishAction;
 
                 //FinishBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.no_iconSmall, 0, 0);
-                FinishBtn.SetImageResource( Resource.Drawable.no_iconSmall);
+                FinishBtn.SetImageResource( Resource.Drawable.no_icon);
             }
 
             return row;

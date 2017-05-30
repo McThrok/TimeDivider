@@ -65,16 +65,16 @@ namespace TDNoPV
             {
                 //TODO: change it into icons
                 //task.AddStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.plus_iconSmall, 0, 0);
-                task.AddStkBtn.SetImageResource( Resource.Drawable.plus_iconSmall);
+                task.AddStkBtn.SetImageResource( Resource.Drawable.plus_icon);
                 task.AddStkBtn.Click += AddToAction;
 
-                task.DeleteStkBtn.SetImageResource(Resource.Drawable.no_iconSmall);
+                task.DeleteStkBtn.SetImageResource(Resource.Drawable.no_icon);
                 //task.DeleteStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.no_iconSmall, 0, 0);
 
                 task.DeleteStkBtn.Click += DeleteFromStk;
 
 
-                task.EditStkBtn.SetImageResource(Resource.Drawable.edit_iconSmall);
+                task.EditStkBtn.SetImageResource(Resource.Drawable.edit_icon);
                 //task.EditStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.edit_iconSmall, 0, 0);
                 task.EditStkBtn.Click += EditStk;
             }

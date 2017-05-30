@@ -98,13 +98,13 @@ namespace TDNoPV
 
         private void SetBtnStateClickToRun()
         {
-            RunActBtn.SetImageResource(Resource.Drawable.start_iconSmall);
+            RunActBtn.SetImageResource(Resource.Drawable.start_icon);
             //RunActBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.start_iconSmall, 0, 0);
 
         }
         private void SetBtnStateClickToStop()
         {
-            RunActBtn.SetImageResource(Resource.Drawable.stop_iconSmall);
+            RunActBtn.SetImageResource(Resource.Drawable.stop_icon);
 
            // RunActBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.stop_iconSmall, 0, 0);
 
