@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:weightSum="10">
+    android:layout_gravity="center">
 
   <ImageButton
-      android:layout_width="40dip"
-      android:layout_height="40dip"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:id="@+id/ActRowRunBtn" 
-      android:layout_weight="1"/>
+      android:id="@+id/ActRowRunBtn"
+      android:layout_alignParentLeft="true"
+      android:background="@drawable/custom_button"/>
 
   <LinearLayout
       android:orientation="horizontal"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_weight="8"
+      android:layout_toRightOf="@+id/ActRowRunBtn"
+      android:layout_toLeftOf="@+id/ActRowRemoveBtn"
       android:weightSum="3">
 
     <TextView
@@ -27,23 +27,24 @@
        android:layout_weight="1"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/ActRowValueTV"
-        android:layout_weight="1"/>
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/ActRowValueTV"
+       android:layout_weight="1"/>
 
-    
+
     <TextView
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:id="@+id/ActRowStopwatchTV"
         android:layout_weight="1"/>
   </LinearLayout>
 
   <ImageButton
-      android:layout_width="40dip"
-      android:layout_height="40dip"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:id="@+id/ActRowRemoveBtn"
-      android:layout_weight="1" />
-</LinearLayout>
+      android:layout_alignParentRight="true"
+      android:background="@drawable/custom_button"/>
+</RelativeLayout>
