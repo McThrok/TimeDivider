@@ -61,8 +61,8 @@ namespace TDNoPV
             ValueTV.Text = task.Value.ToString();
 
             TextView StopwatchTV = row.FindViewById<TextView>(Resource.Id.ActRowStopwatchTV);
-            Button FinishBtn = row.FindViewById<Button>(Resource.Id.ActRowRemoveBtn);
-            Button RunBtn = row.FindViewById<Button>(Resource.Id.ActRowRunBtn);
+            ImageButton FinishBtn = row.FindViewById<ImageButton>(Resource.Id.ActRowRemoveBtn);
+            ImageButton RunBtn = row.FindViewById<ImageButton>(Resource.Id.ActRowRunBtn);
 
             task.TVActTimer = StopwatchTV;
             task.RunActBtn = RunBtn;
@@ -75,7 +75,9 @@ namespace TDNoPV
             {
                 RunBtn.Click += RunStopAction;
                 FinishBtn.Click += FinishAction;
-                FinishBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.no_iconSmall, 0, 0);
+
+                //FinishBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.no_iconSmall, 0, 0);
+                FinishBtn.SetImageResource( Resource.Drawable.no_iconSmall);
             }
 
             return row;
@@ -83,7 +85,7 @@ namespace TDNoPV
 
         private void FinishAction(object sender, EventArgs args)
         {
-            Button btn = sender as Button;
+            ImageButton btn = sender as ImageButton;
             int position = -1;
             while (btn != _tasks[++position].FinishActBtn) ;
             TaskTD task = _tasks[position];
@@ -95,7 +97,7 @@ namespace TDNoPV
         }
         private void RunStopAction(object sender, EventArgs args)
         {
-            Button btn = sender as Button;
+            ImageButton btn = sender as ImageButton;
             int position = -1;
             while (btn != _tasks[++position].RunActBtn) ;
             TaskTD task = _tasks[position];

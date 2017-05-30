@@ -30,13 +30,13 @@ namespace TDNoPV
         private int TimeToLastStop;
         public static int IdCounter { get; set; } = 1;
 
-        public Button RunActBtn { get; set; }
-        public Button FinishActBtn { get; set; }
+        public ImageButton RunActBtn { get; set; }
+        public ImageButton FinishActBtn { get; set; }
         public TextView TVActTimer { get; set; }
 
-        public Button AddStkBtn { get; set; }
-        public Button DeleteStkBtn { get; set; }
-        public Button EditStkBtn { get; set; }
+        public ImageButton AddStkBtn { get; set; }
+        public ImageButton DeleteStkBtn { get; set; }
+        public ImageButton EditStkBtn { get; set; }
 
         public TaskTD(string name = "Noname", int value = 0, int time = 0, long id = -1)
         {
@@ -98,12 +98,15 @@ namespace TDNoPV
 
         private void SetBtnStateClickToRun()
         {
-            RunActBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.start_iconSmall, 0, 0);
+            RunActBtn.SetImageResource(Resource.Drawable.start_iconSmall);
+            //RunActBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.start_iconSmall, 0, 0);
 
         }
         private void SetBtnStateClickToStop()
         {
-            RunActBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.stop_iconSmall, 0, 0);
+            RunActBtn.SetImageResource(Resource.Drawable.stop_iconSmall);
+
+           // RunActBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.stop_iconSmall, 0, 0);
 
         }
 

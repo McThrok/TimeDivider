@@ -57,21 +57,25 @@ namespace TDNoPV
             TextView TimeTV = row.FindViewById<TextView>(Resource.Id.StkRowTimeTV);
             TimeTV.Text = task.Time.ToString();
 
-            task.AddStkBtn = row.FindViewById<Button>(Resource.Id.StkRowAddBtn);
-            task.DeleteStkBtn = row.FindViewById<Button>(Resource.Id.StkRowDeleteBtn);
-            task.EditStkBtn = row.FindViewById<Button>(Resource.Id.StkRowEditBtn);
+            task.AddStkBtn = row.FindViewById<ImageButton>(Resource.Id.StkRowAddBtn);
+            task.DeleteStkBtn = row.FindViewById<ImageButton>(Resource.Id.StkRowDeleteBtn);
+            task.EditStkBtn = row.FindViewById<ImageButton>(Resource.Id.StkRowEditBtn);
 
             if (newRow)
             {
                 //TODO: change it into icons
-                task.AddStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.plus_iconSmall, 0, 0);
+                //task.AddStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.plus_iconSmall, 0, 0);
+                task.AddStkBtn.SetImageResource( Resource.Drawable.plus_iconSmall);
                 task.AddStkBtn.Click += AddToAction;
 
-                task.DeleteStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.no_iconSmall, 0, 0);
+                task.DeleteStkBtn.SetImageResource(Resource.Drawable.no_iconSmall);
+                //task.DeleteStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.no_iconSmall, 0, 0);
 
                 task.DeleteStkBtn.Click += DeleteFromStk;
 
-                task.EditStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.edit_iconSmall, 0, 0);
+
+                task.EditStkBtn.SetImageResource(Resource.Drawable.edit_iconSmall);
+                //task.EditStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.edit_iconSmall, 0, 0);
                 task.EditStkBtn.Click += EditStk;
             }
 
@@ -80,7 +84,7 @@ namespace TDNoPV
 
         private void AddToAction(object sender, EventArgs args)
         {
-            Button btn = sender as Button;
+            ImageButton btn = sender as ImageButton;
             int position = -1;
             while (btn != _tasks[++position].AddStkBtn) ;
             TaskTD task = _tasks[position];
@@ -91,7 +95,7 @@ namespace TDNoPV
         }
         private void DeleteFromStk(object sender, EventArgs args)
         {
-            Button btn = sender as Button;
+            ImageButton btn = sender as ImageButton;
             int position = -1;
             while (btn != _tasks[++position].DeleteStkBtn) ;
             TaskTD task = _tasks[position];
@@ -104,7 +108,7 @@ namespace TDNoPV
         }
         private void EditStk(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
+            ImageButton btn = sender as ImageButton;
             int position = -1;
             while (btn != _tasks[++position].EditStkBtn) ;
 
