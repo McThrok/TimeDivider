@@ -3,9 +3,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:orientation="vertical"
   android:padding="20dp"
-  android:layout_width="match_parent"
+  android:layout_width="wrap_content"
   android:background="@color/mainBackground"
-  android:layout_height="match_parent">
+  android:layout_height="wrap_content">
 
   <CheckBox android:id="@+id/DialSBDateCB"
     android:text="filter by date"
@@ -16,23 +16,23 @@
     android:orientation="horizontal"
     android:background="@android:color/transparent"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:weightSum="2">
+    android:layout_height="wrap_content">
 
     <Button
       android:text="start date"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_gravity="center"
       android:id="@+id/DialStartDateBtn"
-      android:layout_weight="1" />
+      android:background="@drawable/custom_button"
+      android:layout_margin="3dp"
+      android:textColor="@color/mainTextColor" />
 
     <TextView
       android:text="start date"
+      android:layout_gravity="center"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:id="@+id/DialStartDateTV"
-      android:layout_weight="1" />
+      android:id="@+id/DialStartDateTV"/>
   </LinearLayout>
 
 
@@ -40,43 +40,43 @@
     android:orientation="horizontal"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
-    android:weightSum="2">
+    android:background="@android:color/transparent">
 
     <Button
       android:text="end date"
+      android:layout_margin="3dp"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:id="@+id/DialEndDateBtn"
-      android:layout_weight="1" />
+      android:background="@color/mainTealLight"
+      android:padding="0dp"
+      android:textColor="@color/mainTextColor" />
 
     <TextView
       android:text="end date"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:id="@+id/DialEndDateTV"
-      android:layout_weight="1" />
+      android:layout_gravity="center"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/DialEndDateTV" />
   </LinearLayout>
 
 
   <CheckBox android:id="@+id/DialSBValueCB"
-    android:text="filter by date"
+    android:text="filter by value"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"/>
 
   <LinearLayout
     android:orientation="horizontal"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
-    android:weightSum="1">
+    android:background="@android:color/transparent">
 
     <TextView
       android:text="minimum value"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_weight="1"/>
+      android:layout_height="wrap_content"/>
     
     <TextView
       android:text="0"
@@ -94,7 +94,7 @@
    
   <LinearLayout
     android:orientation="horizontal"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
     android:weightSum="1">
@@ -123,6 +123,9 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
+      android:background="@drawable/custom_button"
+      android:textColor="@color/mainTextColor"
+      android:layout_margin="3dp"
       android:id="@+id/DialDoneButton"/>
 
   </LinearLayout>

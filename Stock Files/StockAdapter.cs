@@ -64,18 +64,13 @@ namespace TDNoPV
             if (newRow)
             {
                 //TODO: change it into icons
-                //task.AddStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.plus_iconSmall, 0, 0);
                 task.AddStkBtn.SetImageResource( Resource.Drawable.plus_icon);
                 task.AddStkBtn.Click += AddToAction;
 
                 task.DeleteStkBtn.SetImageResource(Resource.Drawable.no_icon);
-                //task.DeleteStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.no_iconSmall, 0, 0);
-
                 task.DeleteStkBtn.Click += DeleteFromStk;
 
-
                 task.EditStkBtn.SetImageResource(Resource.Drawable.edit_icon);
-                //task.EditStkBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.edit_iconSmall, 0, 0);
                 task.EditStkBtn.Click += EditStk;
             }
 
@@ -85,32 +80,28 @@ namespace TDNoPV
         private void AddToAction(object sender, EventArgs args)
         {
             ImageButton btn = sender as ImageButton;
-            int position = -1;
-            while (btn != _tasks[++position].AddStkBtn) ;
-            TaskTD task = _tasks[position];
+            TaskTD task = _tasks.Find(t => t.AddStkBtn == btn);
 
             if (!StaticData.ActionList.Contains(task))
                 StaticData.ActionList.Add(task);
-            //TODO: add to database
         }
         private void DeleteFromStk(object sender, EventArgs args)
         {
             ImageButton btn = sender as ImageButton;
-            int position = -1;
-            while (btn != _tasks[++position].DeleteStkBtn) ;
-            TaskTD task = _tasks[position];
+            TaskTD task = _tasks.Find(t => t.DeleteStkBtn == btn);
 
-            if (task.FinishActBtn != null)
-                task.FinishActBtn.CallOnClick();
+            //if (task.FinishActBtn != null)
+            //    task.FinishActBtn?.CallOnClick();
+            task.FinishActBtn?.CallOnClick();
+
             DataStorage.DeleteFromStock(task);
-            _tasks.RemoveAt(position);
+            _tasks.Remove(task);
             NotifyDataSetChanged();
         }
         private void EditStk(object sender, EventArgs e)
         {
             ImageButton btn = sender as ImageButton;
-            int position = -1;
-            while (btn != _tasks[++position].EditStkBtn) ;
+            int position = _tasks.FindIndex(t => t.EditStkBtn == btn);
 
             Intent intent = new Intent(_context, typeof(EditTaskActivity));
             intent.PutExtra("position", position);

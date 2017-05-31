@@ -75,32 +75,23 @@ namespace TDNoPV
             {
                 RunBtn.Click += RunStopAction;
                 FinishBtn.Click += FinishAction;
-
-                //FinishBtn.SetCompoundDrawablesWithIntrinsicBounds(0, Resource.Drawable.no_iconSmall, 0, 0);
                 FinishBtn.SetImageResource( Resource.Drawable.no_icon);
             }
-
             return row;
         }
-
         private void FinishAction(object sender, EventArgs args)
         {
             ImageButton btn = sender as ImageButton;
-            int position = -1;
-            while (btn != _tasks[++position].FinishActBtn) ;
-            TaskTD task = _tasks[position];
+            TaskTD task = _tasks.Find(t => t.FinishActBtn == btn);
+            task.RemoveAction();
 
-            _tasks[position].RemoveAction();
-
-            _tasks.RemoveAt(position);
+            _tasks.Remove(task);
             NotifyDataSetChanged();
         }
         private void RunStopAction(object sender, EventArgs args)
         {
             ImageButton btn = sender as ImageButton;
-            int position = -1;
-            while (btn != _tasks[++position].RunActBtn) ;
-            TaskTD task = _tasks[position];
+            TaskTD task = _tasks.Find(t => t.RunActBtn == btn);
 
             if (task.Stopwatch.IsRunning)
                 task.StopAction();

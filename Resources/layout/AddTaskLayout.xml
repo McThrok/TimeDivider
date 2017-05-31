@@ -27,6 +27,8 @@
     android:id="@+id/AddTaskDoneButton"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+      android:background="@drawable/custom_button"
+      android:textColor="@color/mainTextColor"
     android:text="Done"/>
 
 </LinearLayout>

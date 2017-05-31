@@ -8,6 +8,8 @@
 
 
   <color name="mainBackground">#ffffff</color>
+  <color name="mainTextColor">#ffffff</color>
+  
   <color name="mainBlueGrayLight">#465879</color>
   <color name="mainBlueGrayDark">#3F4F6D</color>
   <color name="mainTealLight">#00DAD6</color>

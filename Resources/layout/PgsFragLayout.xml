@@ -24,6 +24,8 @@
   <LinearLayout
     android:orientation="horizontal"
     android:background="@android:color/transparent"
+    android:textColor="@color/mainTextColor"
+    android:layout_margin="5dp"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"
@@ -35,6 +37,9 @@
       android:layout_height="wrap_content"
       android:textSize="12sp"
       android:layout_weight="1"
+      android:background="@drawable/custom_button"
+      android:textColor="@color/mainTextColor"
+      android:layout_margin="5dp"
       android:text="Today"/>
 
     <Button
@@ -43,6 +48,9 @@
       android:layout_height="wrap_content"
       android:textSize="12sp"
       android:layout_weight="1"
+      android:background="@drawable/custom_button"
+      android:textColor="@color/mainTextColor"
+      android:layout_margin="5dp"
       android:text="Yesterday"/>
 
     <Button
@@ -51,6 +59,9 @@
       android:layout_height="wrap_content"
       android:textSize="12sp"
       android:layout_weight="1"
+      android:background="@drawable/custom_button"
+      android:textColor="@color/mainTextColor"
+      android:layout_margin="5dp"
       android:text="This Week"/>
 
     <Button
@@ -59,6 +70,9 @@
       android:layout_height="wrap_content"
       android:textSize="12sp"
       android:layout_weight="1"
+      android:background="@drawable/custom_button"
+      android:textColor="@color/mainTextColor"
+      android:layout_margin="5dp"
       android:text="Last Week"/>
   </LinearLayout>
 
@@ -67,6 +81,9 @@
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"
+    android:background="@drawable/custom_button"
+      android:textColor="@color/mainTextColor"
+    android:layout_margin="5dp"
     android:text="Filter"/>
 
 
