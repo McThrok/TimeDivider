@@ -7,7 +7,7 @@
    android:layout_height="match_parent"
    android:background="@color/mainBackground"
    android:weightSum="12">
-
+  
   <OxyPlot.Xamarin.Android.PlotView
     android:id="@+id/plot_view"
     android:background="@android:color/transparent"
@@ -25,7 +25,6 @@
     android:orientation="horizontal"
     android:background="@android:color/transparent"
     android:textColor="@color/mainTextColor"
-    android:layout_margin="5dp"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"
@@ -37,9 +36,9 @@
       android:layout_height="wrap_content"
       android:textSize="12sp"
       android:layout_weight="1"
-      android:background="@drawable/custom_button"
+      android:background="@drawable/main_button"
       android:textColor="@color/mainTextColor"
-      android:layout_margin="5dp"
+      android:layout_margin="3dp"
       android:text="Today"/>
 
     <Button
@@ -48,9 +47,9 @@
       android:layout_height="wrap_content"
       android:textSize="12sp"
       android:layout_weight="1"
-      android:background="@drawable/custom_button"
+      android:background="@drawable/main_button"
       android:textColor="@color/mainTextColor"
-      android:layout_margin="5dp"
+      android:layout_margin="3dp"
       android:text="Yesterday"/>
 
     <Button
@@ -59,9 +58,9 @@
       android:layout_height="wrap_content"
       android:textSize="12sp"
       android:layout_weight="1"
-      android:background="@drawable/custom_button"
+      android:background="@drawable/main_button"
       android:textColor="@color/mainTextColor"
-      android:layout_margin="5dp"
+      android:layout_margin="3dp"
       android:text="This Week"/>
 
     <Button
@@ -70,9 +69,9 @@
       android:layout_height="wrap_content"
       android:textSize="12sp"
       android:layout_weight="1"
-      android:background="@drawable/custom_button"
+      android:background="@drawable/main_button"
       android:textColor="@color/mainTextColor"
-      android:layout_margin="5dp"
+      android:layout_margin="3dp"
       android:text="Last Week"/>
   </LinearLayout>
 
@@ -81,11 +80,9 @@
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"
-    android:background="@drawable/custom_button"
-      android:textColor="@color/mainTextColor"
-    android:layout_margin="5dp"
+    android:background="@drawable/main_button"
+    android:textColor="@color/mainTextColor"
+    android:layout_margin="3dp"
     android:text="Filter"/>
-
-
 
 </LinearLayout>

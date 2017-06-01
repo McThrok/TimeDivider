@@ -14,7 +14,7 @@
       android:scaleType="fitXY"
       android:layout_alignParentLeft="true"
       android:layout_centerHorizontal="true"
-      android:background="@drawable/custom_button"/>
+      android:background="@drawable/main_image_button"/>
 
   <LinearLayout
       android:orientation="horizontal"
@@ -52,5 +52,5 @@
       android:scaleType="fitXY"
       android:layout_centerHorizontal="true"
       android:layout_alignParentRight="true"
-      android:background="@drawable/custom_button"/>
+      android:background="@drawable/main_image_button"/>
 </RelativeLayout>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<selector xmlns:a="http://schemas.android.com/apk/res/android">
+
+  <item a:state_pressed="false">
+    <layer-list>
+      <item >
+        <shape>
+          <solid a:color="@color/mainBlueGrayLight"/>
+        </shape>
+      </item>
+    </layer-list>
+  </item>
+
+  <item a:state_pressed="true">
+    <layer-list>
+      <item >
+        <shape>
+          <solid a:color="@color/mainTealDark"/>
+        </shape>
+      </item>
+    </layer-list>
+  </item>
+
+</selector>
