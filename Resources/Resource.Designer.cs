@@ -2224,64 +2224,67 @@ namespace TDNoPV
 			public const int main_image_button = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int minus_icon = 2130837603;
+			public const int main_text_view = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int navigation_empty_icon = 2130837604;
+			public const int minus_icon = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int no_icon = 2130837605;
+			public const int navigation_empty_icon = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int notification_action_background = 2130837606;
+			public const int no_icon = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int notification_bg = 2130837607;
+			public const int notification_action_background = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int notification_bg_low = 2130837608;
+			public const int notification_bg = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int notification_bg_low_normal = 2130837609;
+			public const int notification_bg_low = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int notification_bg_low_pressed = 2130837610;
+			public const int notification_bg_low_normal = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int notification_bg_normal = 2130837611;
+			public const int notification_bg_low_pressed = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int notification_bg_normal_pressed = 2130837612;
+			public const int notification_bg_normal = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int notification_icon_background = 2130837613;
-			
-			// aapt resource value: 0x7f020075
-			public const int notification_template_icon_bg = 2130837621;
-			
-			// aapt resource value: 0x7f020076
-			public const int notification_template_icon_low_bg = 2130837622;
+			public const int notification_bg_normal_pressed = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int notification_tile_bg = 2130837614;
+			public const int notification_icon_background = 2130837614;
+			
+			// aapt resource value: 0x7f020076
+			public const int notification_template_icon_bg = 2130837622;
+			
+			// aapt resource value: 0x7f020077
+			public const int notification_template_icon_low_bg = 2130837623;
 			
 			// aapt resource value: 0x7f02006f
-			public const int notify_panel_notification_icon_bg = 2130837615;
+			public const int notification_tile_bg = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int plus_icon = 2130837616;
+			public const int notify_panel_notification_icon_bg = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int secondary_button = 2130837617;
+			public const int plus_icon = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int start_icon = 2130837618;
+			public const int secondary_button = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int stop_icon = 2130837619;
+			public const int start_icon = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int yes_icon = 2130837620;
+			public const int stop_icon = 2130837620;
+			
+			// aapt resource value: 0x7f020075
+			public const int yes_icon = 2130837621;
 			
 			static Drawable()
 			{
