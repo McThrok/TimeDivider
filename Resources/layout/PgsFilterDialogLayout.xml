@@ -1,136 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:padding="20dp"
   android:layout_width="wrap_content"
   android:background="@color/mainBackground"
   android:layout_height="wrap_content">
-
+  <!--TODO:adjust layout_width-->
+  
   <CheckBox android:id="@+id/DialSBDateCB"
     android:text="filter by date"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"/>
 
-  <LinearLayout
-    android:orientation="horizontal"
-    android:background="@android:color/transparent"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <Button
-      android:text="start date"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/DialStartDateBtn"
-      android:layout_margin="3dp"
-      android:padding="5dp"
-      android:textSize="12sp"
-      android:minHeight="0dp"
-      android:background="@drawable/secondary_button"
-      android:textColor="@color/mainTextColor" />
-
-    <TextView
-      android:text="start date"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/DialStartDateTV"/>
-  </LinearLayout>
-
-
-  <LinearLayout
-    android:orientation="horizontal"
+  <Button
+    android:text="start date"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent">
+    android:id="@+id/DialStartDateBtn"
+    android:layout_margin="3dp"
+    android:padding="5dp"
+    android:textSize="12sp"
+    android:minHeight="0dp"
+    android:background="@drawable/secondary_button"
+    android:textColor="@color/mainTextColor"
+    android:layout_below="@+id/DialSBDateCB" />
 
-    <Button
-      android:text="end date"
-      android:layout_margin="3dp"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:id="@+id/DialEndDateBtn"
-      android:padding="5dp"
-      android:textSize="12sp"
-      android:minHeight="0dp"
-      android:background="@drawable/secondary_button"
-      android:textColor="@color/mainTextColor" />
+  <TextView
+    android:text="start date"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/DialStartDateTV"
+    android:layout_toRightOf="@+id/DialStartDateBtn"
+    android:layout_below="@+id/DialSBDateCB"/>
 
-    <TextView
-      android:text="end date"
-      android:layout_gravity="center"
-      android:layout_width="wrap_content"
-      android:layout_height="30dp"
-      android:id="@+id/DialEndDateTV" />
-  </LinearLayout>
+  <Button
+    android:text="end date"
+    android:layout_margin="3dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:id="@+id/DialEndDateBtn"
+    android:padding="5dp"
+    android:textSize="12sp"
+    android:minHeight="0dp"
+    android:background="@drawable/secondary_button"
+    android:textColor="@color/mainTextColor"
+    android:layout_below="@+id/DialStartDateBtn" />
 
+  <TextView
+    android:text="end date"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:id="@+id/DialEndDateTV"
+    android:layout_toRightOf="@+id/DialStartDateBtn"
+    android:layout_below="@+id/DialStartDateBtn" />
 
   <CheckBox android:id="@+id/DialSBValueCB"
     android:text="filter by value"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/DialEndDateBtn"/>
 
-  <LinearLayout
-    android:orientation="horizontal"
+  <TextView
+    android:text="minimum value"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent">
+    android:layout_marginLeft="20dp"
+    android:layout_alignLeft="@+id/DialMinValueSB"
+    android:layout_below="@+id/DialSBValueCB"/>
 
-    <TextView
-      android:text="minimum value"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"/>
-    
-    <TextView
-      android:text="0"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/DialMinValueTV" />
-  </LinearLayout>
-
-    <SeekBar
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:max="10"
-      android:id="@+id/DialMinValueSB"/>
-
-   
-  <LinearLayout
-    android:orientation="horizontal"
+  <TextView
+    android:text="0"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
-    android:weightSum="1">
-    
-    <TextView
-      android:text="maximum value"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_weight="1"/>
-    
-    <TextView
-      android:text="0"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/DialMaxValueTV" />
-  </LinearLayout>
+    android:id="@+id/DialMinValueTV"
+    android:layout_marginRight="20dp"
+    android:layout_alignRight="@+id/DialMinValueSB"
+    android:layout_below="@+id/DialSBValueCB" />
 
-    <SeekBar
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:max="10"
-      android:id="@+id/DialMaxValueSB" />
+  <SeekBar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:max="10"
+    android:id="@+id/DialMinValueSB"
+    android:layout_below="@+id/DialMinValueTV"/>
 
-    <Button
-      android:text="done"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:background="@drawable/main_button"
-      android:textColor="@color/mainTextColor"
-      android:layout_margin="3dp"
-      android:id="@+id/DialDoneButton"/>
+  <TextView
+    android:text="maximum value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_alignLeft="@+id/DialMaxValueSB"
+    android:layout_below="@+id/DialMinValueSB"/>
 
-  </LinearLayout>
+  <TextView
+    android:text="0"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/DialMaxValueTV"
+    android:layout_marginRight="20dp"
+    android:layout_alignRight="@+id/DialMaxValueSB"
+    android:layout_below="@+id/DialMinValueSB" />
+
+  <SeekBar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:max="10"
+    android:id="@+id/DialMaxValueSB"
+    android:layout_below="@+id/DialMaxValueTV" />
+
+  <Button
+    android:text="done"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/main_button"
+    android:textColor="@color/mainTextColor"
+    android:layout_margin="3dp"
+    android:id="@+id/DialDoneButton"
+    android:layout_below="@+id/DialMaxValueSB"/>
+
+</RelativeLayout>
 

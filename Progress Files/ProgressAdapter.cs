@@ -76,14 +76,14 @@ namespace TDNoPV
                 holder.Name = view.FindViewById<TextView>(Resource.Id.PgsRowNameTV);
                 holder.Time = view.FindViewById<TextView>(Resource.Id.PgsRowTimeTV);
                 holder.Percentage = view.FindViewById<TextView>(Resource.Id.PgsRowPercentageTV);
-                
+
                 view.Tag = holder;
             }
-            
+
             holder.Index.Text = Convert.ToChar('A' + position).ToString();
             holder.Value.SetBackgroundColor(Color.Rgb(Convert.ToByte(Math.Min(5 - _cells[position].Value, 5) * 50), Convert.ToByte(Math.Min(_cells[position].Value + 5, 5) * 50), 0));
             holder.Name.Text = _cells[position].Name;
-            holder.Time.Text = _cells[position].Time.ToString();
+            holder.Time.Text = StaticData.GetTimeFromSeconds(_cells[position].Time);
             holder.Percentage.Text = Math.Round((100.0 * _cells[position].Time / _cells.Sum(c => c.Time)), 2).ToString() + "%";
 
             return view;

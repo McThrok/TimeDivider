@@ -55,7 +55,7 @@ namespace TDNoPV
             ValueTV.Text = task.Value.ToString();
 
             TextView TimeTV = row.FindViewById<TextView>(Resource.Id.StkRowTimeTV);
-            TimeTV.Text = task.Time.ToString();
+            TimeTV.Text = StaticData.GetTimeFromSeconds(task.Time);
 
             task.AddStkBtn = row.FindViewById<ImageButton>(Resource.Id.StkRowAddBtn);
             task.DeleteStkBtn = row.FindViewById<ImageButton>(Resource.Id.StkRowDeleteBtn);

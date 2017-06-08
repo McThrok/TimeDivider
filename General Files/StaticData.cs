@@ -18,6 +18,7 @@ namespace TDNoPV
         public static List<TaskTD> StockList;
         public static List<TaskTD> ActionList;
         public static string DataFile = "Tasks.xml";
+
         public static int ValueRange { get; } = 11;
         public static int ValueDiff
         { get { return ValueRange / 2 ; } }
@@ -31,6 +32,21 @@ namespace TDNoPV
             DataStorage.DataStorageOnAppStart();
             StockList = DataStorage.GetStockList();
             ActionList = DataStorage.GetActionList(StaticData.StockList);
+        }
+        public static string GetTimeFromSeconds(int seconds)
+        {
+            TimeSpan t = TimeSpan.FromSeconds(seconds);
+            StringBuilder sb = new StringBuilder();
+
+            if (t.TotalDays >= 1)
+                sb.Append($"{(int)t.TotalDays} d  ");
+            if (t.Hours > 0)
+                sb.Append($"{t.Hours} h  ");
+            if (t.Minutes > 0)
+                sb.Append($"{t.Minutes} m  ");
+            sb.Append($"{t.Seconds} s  ");
+
+            return sb.ToString();
         }
         public static void OnClose()
         {
